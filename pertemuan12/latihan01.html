@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>List Data User</h3>
+    <div id="tampilkan"></div>
+    <table>
+        <tr>
+            <td>#</td>
+            <td>Nama Lengkap</td>
+            <td>Email</td>
+            <td>UserName</td>
+            <td>Aksi</td>
+       <tr>
+       <tr>
+            <td>1</td>
+            <td>Nama Lengkap</td>
+            <td>Email</td>
+            <td>UserName</td>
+            <td>Aksi</td>
+        <tr>
+</table>
+
+
+
+<script>
+    const bacadta = new XMLHttpReguest();
+    let url ="https://webpro.ptov.my.id/api/curduser.php?aksi=get"
+    bacadta.onload = function(){
+ 
+
+   let  = '<table><tr><td><#>/td><td>Nama Lengkap</td><td>Email</td><td>User Name</td><td>Aksi</td></tr>'
+   tx += '<tr>';
+        <td>1</td>;
+            <td>Nama Lengkap</td>;
+            <td>Email</td>;
+            <td>UserName</td>;
+            <td>Ubah Hapus</td>;
+
+        tx += '</table';
+
+        const dta = JSON.parse(this.responseText);
+
+let  = '<table><tr><td><#>/td><td>Nama Lengkap</td><td>Email</td><td>User Name</td><td>Aksi</td></tr>'
+tx += '<tr>';
+        tx +='<td>1</td>';
+        tx +='<td>NamaLengkap</td>';
+        tx +='<td>Email</td>';
+        tx +='<td>UserName</td>';
+        tx +='<td>Ubah Hapus</td>';
+        tx +='</tr>';
+            tx += '</table>';
+        
+        
+let tx = '<table><tr><td><#>/td><td>Nama Lengkap</td><td>Email</td><td>User Name</td><td>Aksi</td></tr>'
+let no = 1;
+for(let i=0; i<dta.isi.length; i++){
+        tx +='<tr>';
+        tx +='<td>'+no+'</td>';
+        tx +='<td>'+dta.isi[1][0]+'</td>';
+        tx +='<td>Email</td>';
+        tx +='<td>UserName</td>';
+        tx +='<td>Ubah Hapus</td>';
+        tx +='</tr>';
+       no++;
+       
+    consolo.log(dta);
+    }
+    bacadta.open("GET",url);
+    bacadta.send();
+
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    NIM: <input type="text" id="txNIM"><br>
+    NAMA: <input type="text" id="txNAMA"><br>
+    TGL LAHIR: <input type="text" id="txTGLLAHIR"><br>
+    ALAMAT: <input type="text" id="txALAMAT"><br>
+    jkl: <input type="text" id="txjkl"><br>
+
+    <script>
+       const bacadata = new XMLHttpRequest();
+      bacadata.open("GET","http://localhost/pertemmuan11/latihano1.php"); 
+      bacadata.send();
+
+      bacadata.onload = function(){
+        const dta = JSON.parse(this.responseText);
+       let JKL = (dta.JKEL=="L")?"Laki-Laki":"Perempuan";
+
+        console.log(dta);
+        document.getElementById("txNIM").value = dta.NIM;
+        document.getElementById("txNAMA").value = dta.NAMA;
+        document.getElementById("txTGLLAHIR").value = dta.TGLLAHIR;
+        document.getElementById("txALAMAT").value = dta.ALAMAT;
+        document.getElementById("txjkl").value = dta.jkl;
+
+      }
+    </script>
+
+</body>
+</html>
